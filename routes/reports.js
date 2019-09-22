@@ -1,18 +1,22 @@
 const express = require('express');
 const router = express.Router();
 const jwt = require('jsonwebtoken');
+const dotenv = require('dotenv');
+
+dotenv.config();
 
 const reports = require('../models/reports');
 
-let config;
+// let config;
 
-try {
-    config = require('../config/config.json');
-} catch (error) {
-    console.error(error);
-}
+// try {
+//     config = require('../config/config.json');
+// } catch (error) {
+//     console.error(error);
+// }
 
-const jwtSecret = process.env.JWT_SECRET || config.secret;
+const jwtSecret = process.env.JWT_SECRET;
+// const jwtSecret = process.env.JWT_SECRET || config.secret;
 
 // router.post('/', (req, res) => {
 //     res.status(201).json({

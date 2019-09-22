@@ -5,15 +5,16 @@ const dotenv = require('dotenv');
 
 dotenv.config();
 
-let config;
+// let config;
 
-try {
-    config = require('../config/config.json');
-} catch (error) {
-    console.error(error);
-}
+// try {
+//     config = require('../config/config.json');
+// } catch (error) {
+//     console.error(error);
+// }
 
-const jwtSecret = process.env.JWT_SECRET || config.secret;
+const jwtSecret = process.env.JWT_SECRET;
+// const jwtSecret = process.env.JWT_SECRET || config.secret;
 
 const auth = {
     register: (res, body) => {
