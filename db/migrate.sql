@@ -6,3 +6,11 @@ CREATE TABLE IF NOT EXISTS users (
     birthday TEXT NOT NULL,
     UNIQUE(email)
 );
+
+-- DROP TABLE IF EXISTS reports;
+CREATE TABLE IF NOT EXISTS reports (
+    week VARCHAR(255) NOT NULL,
+    title VARCHAR(255) NOT NULL,
+    text TEXT NOT NULL,
+    UNIQUE(week)
+);
