@@ -1,15 +1,5 @@
 const db = require('../db/database.js');
 
-// let config;
-
-// try {
-//     config = require('../config/config.json');
-// } catch (error) {
-//     console.error(error);
-// }
-
-// const jwtSecret = process.env.JWT_SECRET || config.secret;
-
 const reports = {
     getAllReports: res => {
         let sql = `SELECT * FROM reports`;
