@@ -1,18 +1,14 @@
-const express = require("express");
-const cors = require("cors");
+const express = require('express');
+const cors = require('cors');
 const morgan = require('morgan');
-const bodyParser = require("body-parser");
+const bodyParser = require('body-parser');
 
 const app = express();
 const port = 1337;
 
-
-
 // Importing route files
 const index = require('./routes/index');
 const reports = require('./routes/reports');
-
-
 
 // MIDDLEWEAR
 
@@ -27,11 +23,9 @@ if (process.env.NODE_ENV !== 'test') {
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
-
 // Add a route
 app.use('/', index);
 app.use('/reports', reports);
-
 
 // app.get("/", (req, res) => {
 //     const data = {
@@ -39,7 +33,7 @@ app.use('/reports', reports);
 //             msg: "Hello World"
 //         }
 //     };
-    
+
 //     res.json(data);
 // });
 
@@ -70,18 +64,18 @@ app.use('/reports', reports);
 //     res.status(204).send();
 // });
 
-app.get("/hello/:msg", (req, res) => {
+app.get('/hello/:msg', (req, res) => {
     const data = {
         data: {
-            msg: req.params.msg
-        }
+            msg: req.params.msg,
+        },
     };
-    
+
     res.json(data);
 });
 
 app.use((req, res, next) => {
-    var err = new Error("Not Found");
+    var err = new Error('Not Found');
     err.status = 404;
     next(err);
 });
@@ -92,15 +86,19 @@ app.use((err, req, res, next) => {
     }
 
     res.status(err.status || 500).json({
-        "errors": [
+        errors: [
             {
-                "status": err.status,
-                "title":  err.message,
-                "detail": err.message
-            }
-        ]
+                status: err.status,
+                title: err.message,
+                detail: err.message,
+            },
+        ],
     });
 });
 
 // Start up server
-app.listen(port, () => console.log(`Example API listening on port ${port}!`));
+// app.listen(port, () => console.log(`Example API listening on port ${port}!`));
+
+const server = app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+
+module.exports = server;
