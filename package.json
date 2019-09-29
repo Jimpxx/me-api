@@ -5,7 +5,7 @@
     "main": "app.js",
     "scripts": {
         "start": "nodemon app.js",
-        "test": "nyc --reporter=html --reporter=text mocha 'test/**/*.js'",
+        "test": "nyc --reporter=html --reporter=text --reporter=clover mocha --timeout 10000",
         "production": "NODE_ENV='production' node app.js"
     },
     "author": "Jimmy Andersson",

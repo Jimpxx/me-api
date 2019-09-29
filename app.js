@@ -96,9 +96,15 @@ app.use((err, req, res, next) => {
     });
 });
 
+// const server
 // Start up server
-// app.listen(port, () => console.log(`Example API listening on port ${port}!`));
+if (!module.parent) {
+    app.listen(port, () => console.log(`Example API listening on port ${port}!`));
+    // server = app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+}
 
-const server = app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+// const server = app.listen(port, () => console.log(`Example app listening on port ${port}!`));
 
-module.exports = server;
+// module.exports = server;
+
+module.exports = app;
