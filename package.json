@@ -1,6 +1,6 @@
 {
     "name": "me-api",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "description": "Me-api for providing means for creating and editing reports for authenticated users",
     "main": "app.js",
     "scripts": {
