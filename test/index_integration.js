@@ -74,7 +74,9 @@ describe('Index', () => {
                 // .expect(201)
                 .end((err, res) => {
                     // console.log(res);
-                    if (err) done(err);
+                    if (err) {
+                        done(err);
+                    }
                     // res.should.have.status(201);
                     res.body.should.be.an('object');
                     // res.body.data.should.be.an('array');
@@ -96,7 +98,9 @@ describe('Index', () => {
                 // .expect(201)
                 .end((err, res) => {
                     // console.log(res);
-                    if (err) done(err);
+                    if (err) {
+                        done(err);
+                    }
                     // res.should.have.status(201);
                     res.body.should.be.an('object');
                     // res.body.data.should.be.an('array');
